@@ -1,0 +1,46 @@
+<head>
+    <meta charset='utf-8' />
+    <link rel='stylesheet' type='text/css' href='stylesheet.css' />
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="pure-min.css" />
+    <script src="jquery-1.11.1.min.js"></script>
+    <title>PropTools</title>
+</head>
+
+<body>
+    <h1 id="title">PropTools</h1>
+    <p id="navbar">
+        <span id='homelink' class="link current">Home</span>- 
+        <span id="srglink" class="link">Smite Random God</span>
+    </p>
+    <div id="main">
+        <div id="home">
+            <h2>Welcome</h2>
+            <p align='center'>This is where I upload all my crap. Fancy, am I right ladies?</p>
+        </div>
+        <div id="srg" align='center'>
+            <h2>Random Smite God Picker</h2>
+            <h3 align='center' id='chosengod'>God Name</h3>
+            <button id='randomizegod' class="pure-button">Randomize God</button>
+        </div>
+    </div>
+    
+    
+    
+    <script>
+        var currentpage = "#home";
+        
+            //hide all
+            $("#srg").hide();
+            //navbar
+            $("#srglink").click(function(){$(currentpage).slideUp();$("#srg").slideDown();currentpage = "#srg";$(".current").toggleClass("current");$(this).toggleClass("current");});
+            $("#homelink").click(function(){$(currentpage).slideUp();$("#home").slideDown();currentpage = "#home";$(".current").toggleClass("current");$(this).toggleClass("current");});
+            //Smite God randomizer
+            $('#randomizegod').click(function(){
+                var gods = ['Agni', 'Ah Muzen Cab', 'Anhur', 'Anubis', 'Aphrodite', 'Apollo', 'Arachne', 'Ares', 'Artemis', 'Athena', 'Bacchus', 'Bakasura', 'Bastet', 'Cabrakan', 'Chaac', "Chang'e", 'Chronos', 'Cupid', 'Fenrir', 'Freya', 'Geb', 'Guan Yu', 'Hades', 'He Bo', 'Hel', 'Hercules', 'Hun Batz', 'Isis', 'Janus', 'Kali', 'Kukulkan', 'Kumbhakarna', 'Loki', 'Mercury', 'Ne Zha', 'Neith', 'Nemesis', 'Nu Wa', 'Odin', 'Osiris', 'Poseidon', 'Ra', 'Rama', 'Scylla', 'Serqet', 'Sobek', 'Sun Wukong', 'Thanatos', 'Thor', 'Tyr', 'Ullr', 'Vamana', 'Vulcan', 'Xbalanque', 'Ymir', 'Zeus', 'Zhong Kui'];
+                var randgods = gods[Math.floor(Math.random() * gods.length)];
+                
+                $('#chosengod').text(randgods)();
+            });
+    </script>
+</body>
